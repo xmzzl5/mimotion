@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：README
-      - name: 刷步数
+      - name: random cron
         run: |
           source cron_convert.sh
           echo "configed CRON_HOURS ${{ vars.CRON_HOURS }}"
@@ -23,5 +23,5 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "random cron"
+          git commit -m "刷步数"
           git push origin master
