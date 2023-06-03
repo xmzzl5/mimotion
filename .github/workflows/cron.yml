@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           token: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：README
-      - name: random cron
+      - name: 刷步数
         run: |
           source cron_convert.sh
           echo "configed CRON_HOURS ${{ vars.CRON_HOURS }}"
