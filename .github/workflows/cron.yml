@@ -12,7 +12,7 @@ jobs:
     timeout-minutes: 3
     if: github.event.workflow_run.conclusion == 'success' || github.event_name == 'workflow_dispatch'
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           token: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：README
       - name: random cron
@@ -23,5 +23,6 @@ jobs:
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
-          git commit -m "random cron"
+          current=`TZ=Asia/Shanghai date '+%Y-%m-%d %H:%M:%S'`
+          git commit -m "[${current}] random cron trigger by ${{ github.event_name }}"
           git push origin master
