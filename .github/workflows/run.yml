@@ -2,7 +2,7 @@ name: 刷步数
 
 on:
   schedule:
-    - cron: '53 17,18,19,20,21,22 * * *'
+    - cron: '30 21,22,23 * * *'
   watch:
     types: started
   workflow_dispatch:
